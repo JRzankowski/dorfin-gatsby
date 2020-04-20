@@ -1,6 +1,6 @@
 const theme = {
     fonts: {
-        mainFont: 'Open Sans, serif'
+        mainFont: 'Montserrat, serif'
     },
     fontSizes: {
         xs: '12px',

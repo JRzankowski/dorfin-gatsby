@@ -13,8 +13,18 @@ module.exports = {
             options: {
                 fonts: [
                     {
-                        family: `Open Sans`,
-                        variants: [`400`, `600`, `700`]
+                        family: `Montserrat`,
+                        variants: [`300`,`400`, `600`, `700`],
+                        subsets: [
+                            "latin-ext"
+                        ]
+                    },
+                    {
+                        family: `Raleway`,
+                        variants: [`400`, `600`, `700`],
+                        subsets: [
+                            "latin-ext"
+                        ]
                     },
                 ],
             },

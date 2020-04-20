@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useState,useRef} from "react"
 import styled from 'styled-components';
 import {graphql, useStaticQuery} from "gatsby";
 import Image from 'gatsby-image';
+import useOutsideClick from "./useOutsideRef";
 
 const HeaderWrapper = styled.header`
-//overflow: hidden;
+  //overflow: hidden;
   display: flex;
   align-items: center;
   justify-self: center;
@@ -14,6 +15,7 @@ const HeaderWrapper = styled.header`
   height: ${props => props.smaller ? '60px' : '75px'};
   box-shadow: ${props => props.smaller ? 'rgba(2, 12, 27, 0.2) 0 10px 30px -10px' : null};
   transition: .6s;
+  z-index: 3;
 `;
 const NavigationWrapper = styled.nav`
   display: flex;
@@ -75,21 +77,62 @@ const NavigationNumber = styled.span`
 const LogoWrapper = styled.div`
   justify-self: center;
   width: 130px;
+  height: 60px;
   overflow: hidden;
-  height: 100%;
 
 `;
 
 const Logo = styled(Image)`
   object-fit: cover;
+  position: relative;
+  bottom: 8px;
 `;
 
 const DropdownMenu = styled.div`
   position: absolute;
-  height: 300px;
-  background: #8093A8;
-  width: 100%;
-  top: 100%;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 80%;
+  transform: ${props => props.menuActive ? 'translate(0)' : 'translate(100%)'};
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(2, 12, 27, 0.2) 0 10px 30px -10px;
+  transition: 1s;
+  padding-bottom: 165px;
+
+  ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+
+
+    li{
+      border-bottom: 1px solid black;
+      padding: 8px;
+ 
+      &:first-child{
+        border: none;
+        
+        
+      }
+      &:last-child{
+        text-align: center;
+        border-bottom: none;
+      }
+      
+  
+      a{
+        font-size: 17px;
+        font-weight: 400;
+        letter-spacing: 1px;
+      }
+      
+    }
+  }
  
  
 `;
@@ -107,6 +150,8 @@ const Navigation = () => {
             window.removeEventListener('scroll', handleScroll);
         }
     });
+
+
     const handleScroll = () => {
         const currentScrollPos = window.pageYOffset;
         let visible = null;
@@ -134,8 +179,19 @@ const Navigation = () => {
         }
     }
     `);
+
+    const ref = useRef();
+
+    useOutsideClick(ref, () => {
+        if(menuActive){
+            toggleMenu()
+        }
+    });
+
+
+
     return (
-        <HeaderWrapper smaller={smallerMenu} visible={menuVisible}>
+        <HeaderWrapper menuActive={menuActive} smaller={smallerMenu} visible={menuVisible}>
             <NavigationWrapper>
                 <NavigationMenu onClick={toggleMenu}>
                     <NavigationMenuBurger menuActive={menuActive}/>
@@ -145,15 +201,16 @@ const Navigation = () => {
                 </LogoWrapper>
                 <NavigationNumber>509-555-389</NavigationNumber>
             </NavigationWrapper>
-            <DropdownMenu>
+            <DropdownMenu menuActive={menuActive} ref={ref}>
                 <ul>
+                    <li><Logo fluid={data.file.childImageSharp.fluid}/></li>
                     <li><a>Start</a></li>
                     <li><a>O nas</a></li>
                     <li><a>Oferta</a></li>
                     <li><a>Współpracujemy</a></li>
                     <li><a>Kontakt</a></li>
+                    <li><NavigationNumber>509-555-389</NavigationNumber></li>
                 </ul>
-
             </DropdownMenu>
         </HeaderWrapper>
     )
