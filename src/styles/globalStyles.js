@@ -14,9 +14,13 @@ const GlobalStyles = createGlobalStyle`
   }
   body {
     margin: 0;
-    padding: 0;
     height: 200vh;
     font-family: ${fonts.mainFont} ;
+    background-color: black ;
+  }
+  section{
+    position: relative;
+    z-index: 1;
   }
 
   button {

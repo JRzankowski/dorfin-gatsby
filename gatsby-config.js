@@ -20,8 +20,8 @@ module.exports = {
                         ]
                     },
                     {
-                        family: `Raleway`,
-                        variants: [`400`, `600`, `700`],
+                        family: `Lato`,
+                        variants: [`300`,`400`, `600`, `700`],
                         subsets: [
                             "latin-ext"
                         ]
@@ -38,7 +38,8 @@ module.exports = {
         },
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
-        `gatsby-plugin-mdx`
+        `gatsby-plugin-mdx`,
+        `gatsby-background-image`
 
 
         // {
