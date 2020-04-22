@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {graphql, useStaticQuery} from "gatsby";
 import Img from 'gatsby-image';
 
+
 const HeroWrapper = styled.section`
   text-align: left;
   background: linear-gradient(to right, #000428 0%, #004e92 100%);
@@ -10,6 +11,9 @@ const HeroWrapper = styled.section`
   height: 100vh;
   width: 100%;
   overflow: hidden;
+  &:hover{
+    
+  }
 
 `;
 
@@ -24,6 +28,7 @@ const HeroContent = styled.div`
   padding: 0 15px;
   max-width: 1200px;
   margin: 0 auto;
+  overflow: hidden;
   @media(min-width: 360px){
    padding: 0 25px;
   }
@@ -34,14 +39,17 @@ const HeroContent = styled.div`
    padding: 0 35% 0 25px;
   }
   @media(min-width: 700px){
-   padding: 0 40% 0 100px;
+   padding: 0 40% 0 50px;
+  }
+   @media(min-width: 1200px){
+   padding: 0 40% 0 0;
   }
   @media(orientation: landscape) and (max-height: 450px){
      padding: 0 35% 0 25px;
   }
 `;
 
-const HeroH1 = styled.h1`
+const HeroH1 = styled.h2`
   font-size: 28px;
   position: relative;
   font-weight: 600;
@@ -84,30 +92,27 @@ const ImageWrapper= styled(Img)`
   z-index: -2;
   object-fit: cover;
   opacity: .5;
-
-
-  
-  
-
 `;
 
 const HeroBtn = styled.button`
     font-family: 'Lato',serif;
     font-weight: 700;
     border-radius: 50px;
-   margin-top: 20px;
+
     font-size: 16px;
-    border: none;
     padding: 8px 14px;
     color: #283651;
     background-color: white;
     line-height: 1.7;
+    border: 1px solid transparent;
+    transition: .2s;
+    &:hover{
+      color: white;
+      background-color: transparent;
+      border: 1px solid white;
+    }
 
 `;
-
-
-
-
 
 const Hero = () => {
     const data = useStaticQuery(graphql`
@@ -129,6 +134,7 @@ const Hero = () => {
                     <HeroH1>Profesjonalne i skuteczne wsparcie doradcze dla biznesu i osób prywatnych.</HeroH1>
                     <HeroBtn>Dowiedz się więcej</HeroBtn>
                 </HeroContent>
+
             </HeroWrapper>
 
 

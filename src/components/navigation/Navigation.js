@@ -35,7 +35,7 @@ const NavigationMenuMobile = styled.div`
   width: 30px;
   height: 24px;
   cursor: pointer;
-  @media(min-width: 750px){
+  @media(min-width: 790px){
      display: none;
   }
 `;
@@ -76,12 +76,22 @@ const NavigationMenuBurger = styled.div`
       transition: top .2s ease-out, opacity ease-out .1s .2s;
     }
 `;
-const NavigationNumber = styled.span`
+const NavigationNumber = styled.a`
   font-size: 12px;
   font-weight: 800;
   color: #283651;
-  @media(min-width: 750px){
+  text-decoration: none;
+  @media(min-width: 790px){
+    padding: 10px 10px;
+     border: 2px solid #283651 ;
+     transition: .1s;
      justify-self: end;
+     font-size: 15px;
+     margin-right: 20px;
+     &:hover{
+      background-color: #283651;
+      color: white;
+     }
   }
 `;
 
@@ -113,7 +123,7 @@ const DropdownMenu = styled.div`
   box-shadow: rgba(2, 12, 27, 0.2) 0 10px 30px -10px;
   transition: 1s;
   padding-bottom: 165px;
-  @media(min-width: 750px){
+  @media(min-width: 790px){
      display: none;
   }
 
@@ -145,19 +155,26 @@ const DropdownMenu = styled.div`
 `;
 const NavigationMenuDesktop = styled.nav`
   display: none;
-  @media(min-width: 750px){
+  @media(min-width: 790px){
      display: block;
   }
   position: relative;
-
   ul{
     display: flex;
+    justify-content: center;
     li{
       list-style: none;
       margin-right: 35px;
+      transition: .1s;
+      cursor: pointer;
+      font-size: 14px;
+      &:hover{
+        color: #283651
+      }
     }
   }
 `;
+
 
 const Navigation = () => {
     const [menuActive, setMenuActive] = useState(false);
@@ -229,7 +246,7 @@ const Navigation = () => {
                         <li><a>Kontakt</a></li>
                     </ul>
                 </NavigationMenuDesktop>
-                <NavigationNumber>509-555-389</NavigationNumber>
+                <NavigationNumber href="tel:+1123-456-7890">509-555-389</NavigationNumber>
             </NavigationWrapper>
             <DropdownMenu menuActive={menuActive} ref={ref}>
                 <ul>
@@ -239,7 +256,7 @@ const Navigation = () => {
                     <li><a>Oferta</a></li>
                     <li><a>Współpracujemy</a></li>
                     <li><a>Kontakt</a></li>
-                    <li><NavigationNumber>509-555-389</NavigationNumber></li>
+                    <li><NavigationNumber menuItem href="tel:+1123-456-7890">509-555-389</NavigationNumber></li>
                 </ul>
             </DropdownMenu>
         </HeaderWrapper>
