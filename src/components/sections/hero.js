@@ -98,7 +98,6 @@ const HeroBtn = styled.button`
     font-family: 'Lato',serif;
     font-weight: 700;
     border-radius: 50px;
-
     font-size: 16px;
     padding: 8px 14px;
     color: #283651;
