@@ -9,7 +9,7 @@ const AboutUsWrapper = styled.section`
   text-align: center;
   background: white;
   position: relative;
- margin: 0 auto;
+  margin: 0 auto;
   width: 100%;
   overflow: hidden;
   padding: 30px 0 40px;
@@ -201,6 +201,8 @@ const AboutUs = () => {
           do dumy i stanowi motywację do dalszego rozwoju i samodoskonalenia.
         </p>
         </AboutUsPMore>
+
+
       <AboutUsBtn onClick={toggleMoreText}>{moreText ? 'Zobacz mniej...' : 'Zobacz więcej...'}</AboutUsBtn>
     </AboutUsWrapper>
 
