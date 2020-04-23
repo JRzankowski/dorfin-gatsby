@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 import OfferBox from "./OfferBox"
+import { graphql, useStaticQuery } from "gatsby"
+
 
 const OfferWrapper = styled.section`
   text-align: center;
@@ -50,17 +52,37 @@ const OfferPanel = styled.div`
 
 
 const Offer = () => {
+  const data = useStaticQuery(graphql`
+  {
+    allMdx(filter: {frontmatter: {name: {eq: "offer"}}}) {
+      nodes {
+        frontmatter {
+          title
+          icon {
+            childImageSharp {
+              fluid(maxWidth: 64, maxHeight: 64) {
+                src
+              }
+            }
+          }
+        }
+        body
+      }
+    }
+  }
+    `)
+
   return (
+
     <OfferWrapper>
       <OfferH1>Oferta</OfferH1>
       <AboutUsP>Zapraszamy do zapoznania się ze szczegółową ofertą:</AboutUsP>
       <OfferPanel>
-        <OfferBox/>
-        <OfferBox/>
-        <OfferBox/>
-        <OfferBox/>
-        <OfferBox/>
-        <OfferBox/>
+        {data.allMdx.nodes.map((value, index) => {
+          return (
+            <OfferBox key={index} title={value.frontmatter.title} icon={value.frontmatter.icon.childImageSharp.fluid.src}/>
+          )
+        })}
       </OfferPanel>
     </OfferWrapper>
 

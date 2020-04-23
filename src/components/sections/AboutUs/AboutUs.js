@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
-import Image from "gatsby-image"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 
@@ -130,7 +129,7 @@ const AboutUs = () => {
   const toggleMoreText = () => setMoreText(!moreText);
   const data = useStaticQuery(graphql`
   {
-    allMdx {
+    allMdx(filter: {frontmatter: {name: {eq: "factor"}}}) {
       nodes {
         frontmatter {
           title
@@ -148,6 +147,7 @@ const AboutUs = () => {
     }
   }
     `)
+  console.log(data);
 
   return (
     <AboutUsWrapper>

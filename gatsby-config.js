@@ -55,17 +55,11 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `factors`,
+        name: `data`,
         path: `${__dirname}/src/data`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `offers`,
-        path: `${__dirname}/src/data/offers`,
-      },
-    },
+
 
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
