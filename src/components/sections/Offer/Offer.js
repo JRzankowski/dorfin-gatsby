@@ -1,8 +1,7 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import OfferBox from "./OfferBox"
 import { graphql, useStaticQuery } from "gatsby"
-
 
 const OfferWrapper = styled.section`
   text-align: center;
@@ -10,8 +9,10 @@ const OfferWrapper = styled.section`
   position: relative;
   margin: 0 auto;
   width: 100%;
+  height: 100vh;
   overflow: hidden;
   padding: 30px 0 40px;
+
 `
 const OfferH1 = styled.h2`
   font-size: 24px;
@@ -48,6 +49,11 @@ const OfferPanel = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+  @media(min-width: 597px){
+    margin-top: 35px;
+  }  
 `
 
 
@@ -72,19 +78,28 @@ const Offer = () => {
   }
     `)
 
-  return (
 
-    <OfferWrapper>
-      <OfferH1>Oferta</OfferH1>
-      <AboutUsP>Zapraszamy do zapoznania się ze szczegółową ofertą:</AboutUsP>
-      <OfferPanel>
-        {data.allMdx.nodes.map((value, index) => {
-          return (
-            <OfferBox key={index} title={value.frontmatter.title} icon={value.frontmatter.icon.childImageSharp.fluid.src}/>
-          )
-        })}
-      </OfferPanel>
-    </OfferWrapper>
+  return (
+    <>
+      <OfferWrapper>
+        <OfferH1>Oferta</OfferH1>
+        <AboutUsP>Zapraszamy do zapoznania się ze szczegółową ofertą:</AboutUsP>
+        <OfferPanel>
+
+          {data.allMdx.nodes.map((value, index) => {
+            return (
+              <>
+                <OfferBox key={index} title={value.frontmatter.title}
+                          icon={value.frontmatter.icon.childImageSharp.fluid.src}
+                          text={value.body}
+                />
+
+              </>
+            )
+          })}
+        </OfferPanel>
+      </OfferWrapper>
+    </>
 
   )
 }
