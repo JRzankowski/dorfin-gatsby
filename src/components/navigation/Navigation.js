@@ -18,6 +18,7 @@ const HeaderWrapper = styled.header`
   transition: .6s;
   z-index: 4;
   background: white;
+ 
 `;
 const NavigationWrapper = styled.nav`
   display: flex;
@@ -77,12 +78,14 @@ const NavigationMenuBurger = styled.div`
     }
 `;
 const NavigationNumber = styled.a`
-  font-size: 12px;
+  font-size: ${props => props.mobileMenu ? '17px' : '12px'}!important;
+  position: ${props => props.mobileMenu ? 'relative' : 'unset'};
+  top: ${props => props.mobileMenu ? '10px' : null};
   font-weight: 800;
   color: #283651;
   text-decoration: none;
   @media(min-width: 790px){
-    padding: 10px 10px;
+     padding: 10px 10px;
      border: 2px solid #283651 ;
      transition: .1s;
      justify-self: end;
@@ -126,6 +129,10 @@ const DropdownMenu = styled.div`
   @media(min-width: 790px){
      display: none;
   }
+  @media(orientation: landscape) and (max-height: 450px){
+      width: 50%;
+      height: auto;
+  }
 
   ul{
     list-style: none;
@@ -146,9 +153,15 @@ const DropdownMenu = styled.div`
         font-size: 17px;
         font-weight: 400;
         letter-spacing: 1px;
-        @media(min-width: 350px){
-          font-size: 23px;
+        @media(min-width: 36px){
+          font-size: 20px;
+          }
+        @media(orientation: landscape) and (max-height: 450px){
+          font-size: 17px;
          }
+         @media(orientation: landscape) and (max-height: 320px){
+          font-size: 14px;
+          }
       }
     }
   }
@@ -256,7 +269,7 @@ const Navigation = () => {
                     <li><a>Oferta</a></li>
                     <li><a>Współpracujemy</a></li>
                     <li><a>Kontakt</a></li>
-                    <li><NavigationNumber menuItem href="tel:+1123-456-7890">509-555-389</NavigationNumber></li>
+                    <li><NavigationNumber mobileMenu menuItem href="tel:+1123-456-7890">509-555-389</NavigationNumber></li>
                 </ul>
             </DropdownMenu>
         </HeaderWrapper>

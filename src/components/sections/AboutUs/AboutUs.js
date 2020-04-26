@@ -147,7 +147,7 @@ const AboutUs = () => {
     }
   }
     `)
-  console.log(data);
+
 
   return (
     <AboutUsWrapper>

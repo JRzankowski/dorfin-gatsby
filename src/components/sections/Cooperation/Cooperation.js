@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import OfferBox from "./OfferBox"
 import { graphql, useStaticQuery } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
-const OfferWrapper = styled.section`
+const CoOpsWrapper = styled.section`
   text-align: center;
   background: white;
   position: relative;
@@ -11,9 +11,8 @@ const OfferWrapper = styled.section`
   width: 100%;
   overflow: hidden;
   padding: 30px 0 40px;
-
 `
-const OfferH1 = styled.h2`
+const CoOpsH2 = styled.h2`
   font-size: 24px;
   color: #283651;
   text-transform: uppercase;
@@ -30,8 +29,7 @@ const OfferH1 = styled.h2`
     transform: translateX(-50%);
   }
 `
-
-const AboutUsP = styled.p`
+const CoOpsP = styled.p`
   display: inline-block;
   font-size: 16px;
   color: #363636;
@@ -44,29 +42,17 @@ const AboutUsP = styled.p`
   margin: 20px auto 0;
 `
 
-const OfferPanel = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 900px;
-  margin: 0 auto;
-  @media(min-width: 597px){
-    margin-top: 35px;
-  }  
-`
-
-
-const Offer = () => {
+const Cooperation = ()=>{
   const data = useStaticQuery(graphql`
   {
-    allMdx(filter: {frontmatter: {name: {eq: "offer"}}}) {
+    allMdx(filter: {frontmatter: {name: {eq: "factor"}}}) {
       nodes {
         frontmatter {
-          title
           icon {
             childImageSharp {
               fluid(maxWidth: 64, maxHeight: 64) {
                 src
+                srcSet
               }
             }
           }
@@ -76,30 +62,12 @@ const Offer = () => {
     }
   }
     `)
-
-
-  return (
-    <>
-      <OfferWrapper>
-        <OfferH1>Oferta</OfferH1>
-        <AboutUsP>Zapraszamy do zapoznania się ze szczegółową ofertą:</AboutUsP>
-        <OfferPanel>
-
-          {data.allMdx.nodes.map((value, index) => {
-            return (
-              <>
-                <OfferBox key={index} title={value.frontmatter.title}
-                          icon={value.frontmatter.icon.childImageSharp.fluid.src}
-                          text={value.body}
-                />
-
-              </>
-            )
-          })}
-        </OfferPanel>
-      </OfferWrapper>
-    </>
-
+  console.log(data)
+  return(
+    <CoOpsWrapper>
+      <CoOpsH2>Współpracujemy</CoOpsH2>
+      <CoOpsP>Aby zapewnić możliwie pełną realizację potrzeb klientów i jednocześnie zapewnić najwyższą jakość świadczonych usług, współpracujemy z podmiotami działającymi w branżach spoza naszej specjalizacji.</CoOpsP>
+    </CoOpsWrapper>
   )
 }
-export default Offer
+export default Cooperation

@@ -14,16 +14,28 @@ const OfferPanelBox = styled.div`
   background-color: #004F92;
   cursor: ${props => props.isOpen ? "unset" : "pointer"};
   z-index: ${props => props.isOpen ? "3" : "2"};
-  transition: ${props => props.isOpen ? "1s transform, width .4s, height .4s " : ".1s transform "};
+  
   overflow-y: ${props => props.isOpen ? "scroll" : null};
   box-shadow: rgba(2,12,27,0.2) 0 10px 30px -10px;
   border-radius: ${props => props.isOpen ? "5px" : null};
+  // opacity: ${props => props.isOpen ? "0" : "1"};
+  // animation: ${props => props.isOpen ? "fade-in .1s linear both" : null};
+  // @keyframes fade-in{
+  //  100%{
+  //    opacity:1;
+  //  }
+  // }
+  //
   @media(min-width: 580px){
     position:${props => props.isOpen ? "absolute" : "relative"} ;
-    transform:${props => props.isOpen ? "translate(0%,-12%)" : null};
-    height: ${props => props.isOpen ? "700px" : "206px"};
+    transform:${props => props.isOpen ? "translate(0%,0%)" : null};
+    height: ${props => props.isOpen ? "620px" : "206px"};
     overflow: hidden;
  
+  }
+  @media(min-width: 870px){
+    height: ${props => props.isOpen ? "500px" : "206px"};
+    transform:${props => props.isOpen ? "translate(0%,-12%)" : null};
   }
    @media(min-width: 970px){
     max-width: 900px;
@@ -40,7 +52,7 @@ const OfferPanelBox = styled.div`
       background-color: #004F92;
     }
   }
-  @media(min-width: 887px){
+  @media(min-width: 870px){
     background-color: #004F92;
       &:nth-of-type(2n){
         background-color: #000427;
@@ -86,7 +98,7 @@ const OfferPanelBoxContent = styled.div`
   left: ${props => props.isOpen ? null : "50%"};
   transform: ${props => props.isOpen ? null : "translate(-50%,-50%)"};
   opacity: ${props => props.isOpen ? "0" : "1"};
-  animation: ${props => props.isOpen ? "fade-in 1s .3s linear both" : null};
+  animation: ${props => props.isOpen ? "fade-in 1s  linear both" : null};
   padding: 0 20px 20px;
    svg{
    color: white;
@@ -154,7 +166,9 @@ const OfferBox = (props) => {
   const openModal = (e) => {
     if (!modalOpen) {
       setModalOpen(true)
+
     }
+    console.log(e.target)
   }
   const closeModal = () => {
     setModalOpen(false)
