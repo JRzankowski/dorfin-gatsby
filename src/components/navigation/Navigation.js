@@ -194,36 +194,36 @@ const Navigation = () => {
 
   const [menuActive, setMenuActive] = useState(false)
 
-  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset)
+  // const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset)
 
   const [menuVisible, setMenuVisible] = useState(true)
   const [smallerMenu, setSmallerMenu] = useState(false)
   const toggleMenu = () => setMenuActive(!menuActive)
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll)
-    return function cleanup() {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  })
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll)
+  //   return function cleanup() {
+  //     window.removeEventListener("scroll", handleScroll)
+  //   }
+  // })
 
 
-  const handleScroll = () => {
-    const currentScrollPos = window.pageYOffset
-    let visible = null
-    if (!menuActive) {
-      visible = prevScrollPos > currentScrollPos
-    } else {
-      visible = true
-    }
-    setPrevScrollPos(currentScrollPos)
-    setMenuVisible(visible)
-    if (currentScrollPos > 100) {
-      setSmallerMenu(true)
-    } else {
-      setSmallerMenu(false)
-    }
-  }
+  // const handleScroll = () => {
+  //   const currentScrollPos = window.pageYOffset
+  //   let visible = null
+  //   if (!menuActive) {
+  //     visible = prevScrollPos > currentScrollPos
+  //   } else {
+  //     visible = true
+  //   }
+  //   setPrevScrollPos(currentScrollPos)
+  //   setMenuVisible(visible)
+  //   if (currentScrollPos > 100) {
+  //     setSmallerMenu(true)
+  //   } else {
+  //     setSmallerMenu(false)
+  //   }
+  // }
   const data = useStaticQuery(graphql`
     {
         file(name: { eq: "dorfin" }) {
