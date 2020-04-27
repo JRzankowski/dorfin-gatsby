@@ -13,7 +13,7 @@ const ContactWrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
   @media(min-width: 1000px){
-    padding-top:250px;
+    padding-top:100px;
   }
   
   

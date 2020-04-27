@@ -10,7 +10,7 @@ const OfferWrapper = styled.section`
   margin: 0 auto;
   width: 100%;
   overflow: hidden;
-  padding: 120px 0 40px;
+  padding: 40px 0 40px;
 
 `
 const OfferH1 = styled.h2`
