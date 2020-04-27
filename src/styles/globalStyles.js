@@ -1,7 +1,7 @@
-import {createGlobalStyle} from 'styled-components';
-import theme from "./theme";
+import { createGlobalStyle } from "styled-components"
+import theme from "./theme"
 
-const {fontSizes, fonts} = theme;
+const { fontSizes, fonts } = theme
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -34,6 +34,18 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     margin: 0;
   }
-`;
+  input,textarea{
+    font-family: inherit; 
+    font-size: 100%; 
+    line-height: 1.15; 
+    margin: 0; 
+  }
+  input{
+    overflow: visible;
+  }
+  [type="submit"] {
+    -webkit-appearance: button;
+   }
+`
 
-export default GlobalStyles;
+export default GlobalStyles

@@ -259,7 +259,7 @@ const Navigation = () => {
                         <li><a>Kontakt</a></li>
                     </ul>
                 </NavigationMenuDesktop>
-                <NavigationNumber href="tel:+1123-456-7890">509-555-389</NavigationNumber>
+                <NavigationNumber href="tel:+1123-456-7890">+48 570 389 999</NavigationNumber>
             </NavigationWrapper>
             <DropdownMenu menuActive={menuActive} ref={ref}>
                 <ul>
@@ -269,7 +269,7 @@ const Navigation = () => {
                     <li><a>Oferta</a></li>
                     <li><a>Współpracujemy</a></li>
                     <li><a>Kontakt</a></li>
-                    <li><NavigationNumber mobileMenu menuItem href="tel:+1123-456-7890">509-555-389</NavigationNumber></li>
+                    <li><NavigationNumber mobileMenu menuItem href="tel:+1123-456-7890">+48 570 389 999</NavigationNumber></li>
                 </ul>
             </DropdownMenu>
         </HeaderWrapper>

@@ -3,6 +3,7 @@ import Hero from "../components/sections/hero"
 import AboutUs from "../components/sections/AboutUs/AboutUs"
 import Offer from "../components/sections/Offer/Offer"
 import Cooperation from "../components/sections/Cooperation/Cooperation"
+import Contact from "../components/sections/Contact/Contact"
 
 
 const IndexPage = () => (
@@ -11,6 +12,7 @@ const IndexPage = () => (
     <AboutUs/>
     <Offer/>
     <Cooperation/>
+    <Contact/>
   </>
 
 )
