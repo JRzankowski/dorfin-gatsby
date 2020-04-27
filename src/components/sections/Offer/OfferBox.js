@@ -186,7 +186,7 @@ const OfferBox = (props) => {
   })
   return (
     <>
-      <OfferPanelBox className='modal' ref={ref} isOpen={modalOpen} onClick={openModal}>
+      <OfferPanelBox key={props.index} className='modal' ref={ref} isOpen={modalOpen} onClick={openModal}>
         <OfferPanelBoxContent isOpen={modalOpen}>
           <IconWrapper isOpen={modalOpen} src={props.icon}/>
           <p>{props.title}</p>

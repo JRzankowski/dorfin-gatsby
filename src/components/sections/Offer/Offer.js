@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import OfferBox from "./OfferBox"
 import { graphql, useStaticQuery } from "gatsby"
@@ -80,7 +80,7 @@ const Offer = () => {
 
   return (
     <>
-      <OfferWrapper>
+      <OfferWrapper name="offer">
         <OfferH1>Oferta</OfferH1>
         <AboutUsP>Zapraszamy do zapoznania się ze szczegółową ofertą:</AboutUsP>
         <OfferPanel>
@@ -88,7 +88,7 @@ const Offer = () => {
           {data.allMdx.nodes.map((value, index) => {
             return (
               <>
-                <OfferBox key={index} title={value.frontmatter.title}
+                <OfferBox index={index} title={value.frontmatter.title}
                           icon={value.frontmatter.icon.childImageSharp.fluid.src}
                           text={value.body}
                 />

@@ -1,9 +1,9 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import { graphql, useStaticQuery } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { FaAngleLeft, FaAngleRight, FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa"
-import Carousel, { Dots } from "@brainhubeu/react-carousel"
+import Carousel from "@brainhubeu/react-carousel"
 import "@brainhubeu/react-carousel/lib/style.css"
 
 
@@ -141,7 +141,7 @@ const Cooperation = () => {
     `)
   console.log(data)
   return (
-    <CoOpsWrapper>
+    <CoOpsWrapper name="coop">
       <CoOpsH2>Współpracujemy</CoOpsH2>
       <CoOpsP>Aby zapewnić możliwie pełną realizację potrzeb klientów i jednocześnie zapewnić najwyższą jakość
         świadczonych usług, współpracujemy z podmiotami działającymi w branżach spoza naszej specjalizacji.</CoOpsP>

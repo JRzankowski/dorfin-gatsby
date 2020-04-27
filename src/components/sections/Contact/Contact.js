@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import GoogleMap from "./GoogleMap"
 
@@ -9,15 +9,26 @@ const ContactWrapper = styled.section`
   margin: 0 auto;
   width: 100%;
   overflow: hidden;
-  padding: 30px 0 40px;
+  padding: 60px 0 40px;
+  display: flex;
+  flex-wrap: wrap;
+  @media(min-width: 1000px){
+    padding-top:250px;
+  }
+  
+  
 `
 const ContactH2 = styled.h1`
-  font-size: ${props=>props.details ? "18px":"24px"};
-  color: #283651;
+width: 100%;
+  font-size: ${props => props.details ? "18px" : "24px"};
+  color: ${props => props.details ? "#494949" : "#283651"};
   text-transform: uppercase;
   position: relative;
   padding: 0 10px;
-  &:before{
+  @media(min-width:750px){
+    margin-bottom: ${props => props.details ? null : "100px"};
+  }
+  &:${props => props.details ? null : "before"}{
     content: "";
     width: 75px;
     height: 2px;
@@ -32,6 +43,7 @@ const ContactP = styled.p`
   display: inline-block;
   font-size: 16px;
   color: #363636;
+
   position: relative;
   padding: 0 25px;
   font-family: Lato,serif;
@@ -50,6 +62,10 @@ const ContactFormWrapper = styled.div`
   margin: 0 auto;
   padding: 50px 0;
   text-align: left;
+  @media(min-width:750px){
+    width: 45%;
+    margin: 0;
+  }
 `
 const ContactFormLabel = styled.label`
   margin: 0 auto;
@@ -57,6 +73,15 @@ const ContactFormLabel = styled.label`
   font-weight: 600;
   color: #444 ;
   
+`
+const ContactFormContentWrapper = styled.div`
+  @media(min-width:750px){
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `
 const ContactFormInput = styled.input`
   width: 250px;
@@ -99,9 +124,16 @@ const ContactFormTextarea = styled.textarea`
   }
 `
 const ContactInfoWrapper = styled.div`
-  
+  @media(min-width:750px){
+    width: 45%;
+    margin: 0;
+  }
 `
 const ContactInfoDetails = styled.div`
+
+  p{
+    width: 100%;
+  }
  
   
 `
@@ -109,6 +141,16 @@ const GoogleMapWrapper = styled.div`
   margin-top: 65px;
   width: 100%;
   height: 400px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  @media(min-width:750px){
+    //width: 45%;
+    //margin: 0 auto;
+    //overflow: hidden;
+  }
+
+ 
 `
 
 
@@ -166,56 +208,58 @@ const Contact = () => {
 
 
   return (
-    <ContactWrapper>
+    <ContactWrapper name="contact">
       <ContactH2>Kontakt</ContactH2>
-      <ContactFormWrapper>
-        <form>
-          <ContactFormLabel htmlFor="name">
-            Imię i nazwisko
-            <ContactFormInput onInput={handleInput} name="name" id="name"/>
-          </ContactFormLabel>
-          <ContactFormLabel htmlFor="phone">
-            Numer telefonu
-            <ContactFormInput onInput={handleInput} name="phone" id="phone"/>
-          </ContactFormLabel>
-          <ContactFormLabel htmlFor="email">
-            Adres email
-            <ContactFormInput onInput={handleInput} name="email" id="email"/>
-          </ContactFormLabel>
-          <ContactFormLabel htmlFor="message">
-            Wiadomość
-            <ContactFormTextarea onInput={handleInput} name="message" id="message"/>
-          </ContactFormLabel>
-        </form>
-      </ContactFormWrapper>
-      <ContactInfoWrapper>
-        <ContactInfoDetails>
-          <ContactH2 details>Kancelaria Doradców Podatkowych
-            Dorfin Przybyszewski Sp.k.</ContactH2>
-          <ContactP>ul. Floriana 3
-            <br/>
-            96-100 Skierniewice</ContactP>
-          <ContactP>
-            NIP: 8361002007
-            <br/>
-            REGON: 750445030
-            <br/>
-            KRS: 0000460628
-          </ContactP>
-          <ContactP>
-            Kancelaria czynna od poniedziałku do piątku w godzinach od 8:00 do 16:00.
-            <br/>
-            Istnieje możliwość spotkania w innych godzinach po uprzednim uzgodnieniu terminu.
-            <br/>
-            E-mail: <a type="email" href="biuro@dorfin.eu">biuro@dorfin.eu</a>
-            <br/>
-            Telefon: <a href="tel:+48 570 389 999">+48 570 389 999</a>
-          </ContactP>
-        </ContactInfoDetails>
+      <ContactFormContentWrapper>
+        <ContactFormWrapper>
+          <form>
+            <ContactFormLabel htmlFor="name">
+              Imię i nazwisko
+              <ContactFormInput onInput={handleInput} name="name" id="name"/>
+            </ContactFormLabel>
+            <ContactFormLabel htmlFor="phone">
+              Numer telefonu
+              <ContactFormInput onInput={handleInput} name="phone" id="phone"/>
+            </ContactFormLabel>
+            <ContactFormLabel htmlFor="email">
+              Adres email
+              <ContactFormInput onInput={handleInput} name="email" id="email"/>
+            </ContactFormLabel>
+            <ContactFormLabel htmlFor="message">
+              Wiadomość
+              <ContactFormTextarea onInput={handleInput} name="message" id="message"/>
+            </ContactFormLabel>
+          </form>
+        </ContactFormWrapper>
+        <ContactInfoWrapper>
+          <ContactInfoDetails>
+            <ContactH2 details>Kancelaria Doradców Podatkowych
+              Dorfin Przybyszewski Sp.k.</ContactH2>
+            <ContactP>ul. Floriana 3
+              <br/>
+              96-100 Skierniewice</ContactP>
+            <ContactP>
+              NIP: 8361002007
+              <br/>
+              REGON: 750445030
+              <br/>
+              KRS: 0000460628
+            </ContactP>
+            <ContactP>
+              Kancelaria czynna od poniedziałku do piątku w godzinach od 8:00 do 16:00.
+              <br/>
+              Istnieje możliwość spotkania w innych godzinach po uprzednim uzgodnieniu terminu.
+              <br/>
+              E-mail: <a type="email" href="biuro@dorfin.eu">biuro@dorfin.eu</a>
+              <br/>
+              Telefon: <a href="tel:+48 570 389 999">+48 570 389 999</a>
+            </ContactP>
+          </ContactInfoDetails>
+        </ContactInfoWrapper>
         <GoogleMapWrapper>
           <GoogleMap/>
         </GoogleMapWrapper>
-      </ContactInfoWrapper>
+      </ContactFormContentWrapper>
     </ContactWrapper>
 
   )

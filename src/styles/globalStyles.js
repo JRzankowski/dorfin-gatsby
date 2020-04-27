@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components"
 import theme from "./theme"
 
-const { fontSizes, fonts } = theme
+const { fonts } = theme
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -16,10 +16,12 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     font-family: ${fonts.mainFont} ;
     background-color: black ;
+    scroll-behavior: smooth;
   }
   section{
     position: relative;
     z-index: 1;
+ 
   }
 
   button {

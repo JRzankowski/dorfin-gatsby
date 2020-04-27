@@ -2,6 +2,7 @@ import React from "react"
 import styled from 'styled-components';
 import {graphql, useStaticQuery} from "gatsby";
 import Img from 'gatsby-image';
+import {Link} from 'react-scroll'
 
 
 const HeroWrapper = styled.section`
@@ -78,11 +79,6 @@ const HeroH1 = styled.h2`
   }
 `;
 
-const HeroP = styled.p`
-  font-size: 14px;
-
-`;
-
 const ImageWrapper= styled(Img)`
   position: absolute;
   top: 0;
@@ -127,11 +123,11 @@ const Hero = () => {
     `);
     return (
 
-            <HeroWrapper >
+            <HeroWrapper name="start">
                 <ImageWrapper backgroundColor fluid={data.file.childImageSharp.fluid} objectFit="cover" objectPosition="50% 50%"/>
                 <HeroContent>
                     <HeroH1>Profesjonalne i skuteczne wsparcie doradcze dla biznesu i osób prywatnych.</HeroH1>
-                    <HeroBtn>Dowiedz się więcej</HeroBtn>
+                    <HeroBtn><Link to="aboutUs">Dowiedz się więcej</Link></HeroBtn>
                 </HeroContent>
 
             </HeroWrapper>

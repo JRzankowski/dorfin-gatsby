@@ -11,7 +11,7 @@ const AboutUsWrapper = styled.section`
   margin: 0 auto;
   width: 100%;
   overflow: hidden;
-  padding: 30px 0 40px;
+  padding: 60px 0 40px;
 `
 const AboutUsH1 = styled.h1`
   font-size: 24px;
@@ -150,7 +150,7 @@ const AboutUs = () => {
 
 
   return (
-    <AboutUsWrapper>
+    <AboutUsWrapper name="aboutUs">
       <AboutUsH1>kancelaria doradców podatkowych dorfin</AboutUsH1>
       <AboutUsP>
         Świadczmy usługi doradztwa podatkowego oraz zapewniamy kompleksową obsługę księgową i kadrowo-płacową.
