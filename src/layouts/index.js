@@ -8,7 +8,7 @@ const MainLayout = ({ children }) => {
   return (
     <>
       <GlobalStyles/>
-      {typeof window !== "undefined" && <Navigation/>}
+      <Navigation/>
       {children}
       <Footer/>
     </>
