@@ -152,7 +152,9 @@ const AboutUs = () => {
   return (
     <AboutUsWrapper name="aboutUs">
       <AboutUsH1>kancelaria doradców podatkowych dorfin</AboutUsH1>
-      <AboutUsP>
+      <AboutUsP data-sal="fade"
+                data-sal-delay="100"
+                data-sal-duration="1000" >
         Świadczmy usługi doradztwa podatkowego oraz zapewniamy kompleksową obsługę księgową i kadrowo-płacową.
           Naszą misją jest zagwarantowanie bezpieczeństwa podatkowego klientów przy zastosowaniu optymalnych i zgodnych z
           prawem rozwiązań. Z osobami, które skorzystały z naszych usług budujemy długofalowe i elastyczne formy
@@ -162,7 +164,10 @@ const AboutUs = () => {
       <FactorsWrapper>
         {data.allMdx.nodes.map((value, index) => {
           return (
-            <Factor key={index}>
+            <Factor key={index}
+                    data-sal="slide-right"
+                    data-sal-delay={index + 100}
+                    data-sal-duration="1000">
               <div>
                 <img alt={value.title} src={value.frontmatter.icon.childImageSharp.fluid.src} key={index}/>
               </div>

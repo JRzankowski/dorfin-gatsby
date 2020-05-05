@@ -1,8 +1,9 @@
 import React from "react"
-import styled from 'styled-components';
-import {graphql, useStaticQuery} from "gatsby";
-import Img from 'gatsby-image';
-import {Link} from 'react-scroll'
+import styled from "styled-components"
+import { graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
+import { Link } from "react-scroll"
+import Reveal from "react-reveal/Reveal"
 
 
 const HeroWrapper = styled.section`
@@ -16,7 +17,7 @@ const HeroWrapper = styled.section`
     
   }
 
-`;
+`
 
 const HeroContent = styled.div`
   position: absolute;
@@ -48,7 +49,7 @@ const HeroContent = styled.div`
   @media(orientation: landscape) and (max-height: 450px){
      padding: 0 35% 0 25px;
   }
-`;
+`
 
 const HeroH1 = styled.h2`
   font-size: 28px;
@@ -77,9 +78,9 @@ const HeroH1 = styled.h2`
     color: white;
    
   }
-`;
+`
 
-const ImageWrapper= styled(Img)`
+const ImageWrapper = styled(Img)`
   position: absolute;
   top: 0;
   left: 0;
@@ -88,7 +89,7 @@ const ImageWrapper= styled(Img)`
   z-index: -2;
   object-fit: cover;
   opacity: .5;
-`;
+`
 
 const HeroBtn = styled.button`
     font-family: 'Lato',serif;
@@ -107,10 +108,10 @@ const HeroBtn = styled.button`
       border: 1px solid white;
     }
 
-`;
+`
 
 const Hero = () => {
-    const data = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     {
         file(name: { eq: "hero1" }) {
             childImageSharp {
@@ -120,20 +121,25 @@ const Hero = () => {
             }
         }
     }
-    `);
-    return (
+    `)
+  return (
 
-            <HeroWrapper name="start">
-                <ImageWrapper backgroundColor fluid={data.file.childImageSharp.fluid} objectFit="cover" objectPosition="50% 50%"/>
-                <HeroContent>
-                    <HeroH1>Profesjonalne i skuteczne wsparcie doradcze dla biznesu i osób prywatnych.</HeroH1>
-                    <HeroBtn><Link to="aboutUs">Dowiedz się więcej</Link></HeroBtn>
-                </HeroContent>
+    <HeroWrapper name="start">
+      <ImageWrapper backgroundColor fluid={data.file.childImageSharp.fluid} objectFit="cover" objectPosition="50% 50%"/>
+      <HeroContent>
+        <HeroH1 data-sal="fade"
+                data-sal-delay="100"
+                data-sal-duration="1000"
+                >
+          Profesjonalne i skuteczne wsparcie doradcze dla biznesu i osób prywatnych.
+        </HeroH1>
+        <HeroBtn><Link to="aboutUs">Dowiedz się więcej</Link></HeroBtn>
+      </HeroContent>
 
-            </HeroWrapper>
+    </HeroWrapper>
 
 
-    )
-};
+  )
+}
 
 export default Hero

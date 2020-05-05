@@ -91,6 +91,9 @@ const Offer = () => {
                 <OfferBox index={index} title={value.frontmatter.title}
                           icon={value.frontmatter.icon.childImageSharp.fluid.src}
                           text={value.body}
+                          data-sal="slide-right"
+                          data-sal-delay={index + 100}
+                          data-sal-duration="1000"
                 />
 
               </>

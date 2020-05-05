@@ -9,6 +9,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-layout`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-scroll-reveal`,
     {
       resolve: "gatsby-plugin-anchor-links",
       options: {

@@ -5,6 +5,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import { FaAngleLeft, FaAngleRight, FaAngleDoubleLeft, FaAngleDoubleRight } from "react-icons/fa"
 import Carousel from "@brainhubeu/react-carousel"
 import "@brainhubeu/react-carousel/lib/style.css"
+import OfferBox from "../Offer/OfferBox"
 
 
 const CoOpsWrapper = styled.section`
@@ -159,14 +160,14 @@ const Cooperation = () => {
           arrows
           breakpoints={{
             500: {
-              slidesPerPage: 1,
+              slidesPerPage: 1
             },
             900: {
               slidesPerPage: 2
             },
             1125: {
-              slidesPerPage: 3,
-            },
+              slidesPerPage: 3
+            }
 
           }}
         >
@@ -184,7 +185,11 @@ const Cooperation = () => {
       <CoOpsCompaniesWrapper>
         {data.allMdx.nodes.map((value, index) => {
           return (
-            <div className='slide-container' key={index}>
+            <div className='slide-container' key={index}
+                 data-sal="slide-right"
+                 data-sal-delay={index + 100}
+                 data-sal-duration="1000"
+            >
               <img alt='company logo' src={value.frontmatter.icon.childImageSharp.fluid.src}/>
               <CoOpsSlideText className="legend"><MDXRenderer>{value.body}</MDXRenderer></CoOpsSlideText>
             </div>

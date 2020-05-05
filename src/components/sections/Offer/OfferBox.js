@@ -186,8 +186,11 @@ const OfferBox = (props) => {
   })
   return (
     <>
-      <OfferPanelBox key={props.index} className='modal' ref={ref} isOpen={modalOpen} onClick={openModal}>
-        <OfferPanelBoxContent isOpen={modalOpen}>
+      <OfferPanelBox key={props.index} className='modal' ref={ref} isOpen={modalOpen} onClick={openModal} data-sal="slide-right"
+                     data-sal-delay={100}
+                     data-sal-duration="1000">
+        <OfferPanelBoxContent isOpen={modalOpen}
+        >
           <IconWrapper isOpen={modalOpen} src={props.icon}/>
           <p>{props.title}</p>
           {
